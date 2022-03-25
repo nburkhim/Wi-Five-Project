@@ -1,13 +1,12 @@
 .container {
-    text-align: center;
-    display:block;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timeline {
-    margin-top: 100px;
-    margin-left: 20%;
-    margin-bottom: 5%;
-    width: 50%;
+  margin: 50px auto;
+  width: 50%;
 }
+
