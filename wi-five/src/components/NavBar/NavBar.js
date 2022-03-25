@@ -83,13 +83,13 @@ const NavBar = () => {
               ))}
             </Menu>
           </Box>
-          <Typography 
+          <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO
+            Wi-Five
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

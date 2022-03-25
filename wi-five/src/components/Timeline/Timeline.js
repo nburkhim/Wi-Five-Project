@@ -4,32 +4,36 @@ import Slider from '@mui/material/Slider';
 
 const Timeline = [
   {
-    value: 0,
-    label: '0:00 AM',
-  },
-  {
-    value: 4,
-    label: '4:00 AM',
-  },
-  {
     value: 8,
     label: '8:00 AM',
   },
   {
+    value: 10,
+    label: '10:00 AM',
+  },
+  {
     value: 12,
-    label: '12:00 PM',
+    label: '12:00 AM',
+  },
+  {
+    value: 14,
+    label: '2:00 PM',
   },
   {
     value: 16,
     label: '4:00 PM',
   },
   {
-    value: 20,
-    label: '8:00 PM',
+    value: 18,
+    label: '6:00 PM',
   },
   {
-    value: 24,
-    label: '12:00 AM',
+    value: 20,
+    label: '8:00 AM',
+  },
+  {
+    value: 22,
+    label: '10:00 AM',
   }
 ];
 
@@ -44,9 +48,9 @@ export default function DiscreteSliderMarks() {
         aria-label="Custom marks"
         defaultValue={8}
         getAriaValueText={valuetext}
-        step={4}
-        max={24}
-        min={0}
+        step={2}
+        max={22}
+        min={8}
         size="medium"
         color="secondary"
         valueLabelDisplay="auto"
