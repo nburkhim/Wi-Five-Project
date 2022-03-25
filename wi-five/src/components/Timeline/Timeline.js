@@ -29,11 +29,11 @@ const Timeline = [
   },
   {
     value: 20,
-    label: '8:00 AM',
+    label: '8:00 PM',
   },
   {
     value: 22,
-    label: '10:00 AM',
+    label: '10:00 PM',
   }
 ];
 
