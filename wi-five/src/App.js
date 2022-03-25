@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import Map from './components/Map/Map';
 import Navbar from './components/NavBar/NavBar';
 import Timeline from './components/Timeline/Timeline';
@@ -8,7 +8,7 @@ import Filter from './components/Filter/Filter';
 import heatMapG from './components/Map/heatmapg.json';
 import heatMapY from './components/Map/heatmapy.json';
 import heatMapR from './components/Map/heatmapr.json';
-import Home from './components/Home/Home';
+// import Home from './components/Home/Home';
 
 
 
