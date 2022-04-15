@@ -41,7 +41,15 @@ function valuetext(value) {
   return `${value}:00`;
 }
 
-export default function DiscreteSliderMarks() {
+
+
+export default function DiscreteSliderMarks(props) {
+
+  function handleChange(e) {
+    const { value } = e.target;
+    props.sliderChange(value);
+  }
+
   return (
     <Box xs={{ width: 50 }}>
       <Slider
@@ -55,6 +63,7 @@ export default function DiscreteSliderMarks() {
         color="secondary"
         valueLabelDisplay="auto"
         marks={Timeline}
+        onChange={handleChange}
       />
     </Box>
   );
