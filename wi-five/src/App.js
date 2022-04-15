@@ -107,9 +107,7 @@ function App() {
     setMapKey(3)
   }
 
-  async function sliderChange(sliderValue) {
-    console.log(sliderValue)
-    setHeatMapTime(sliderValue)
+  async function sliderChange() {
     const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${heatMapDay}/${heatMapTime}`)
     console.log(res.data)
     setHeatMapData(res.data);
@@ -122,7 +120,7 @@ function App() {
       <div><Map mapKey={mapKey} heatMapData={heatMapData} /></div>
       <div><Filter heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} /></div>
 
-      <div className='timeline'><Timeline sliderChange={sliderChange} /></div>
+      <div className='timeline'><Timeline setHeatMapTime={setHeatMapTime} heatMapTime={heatMapTime} sliderChange={sliderChange} /></div>
 
 
     </div>

@@ -45,16 +45,22 @@ function valuetext(value) {
 
 export default function DiscreteSliderMarks(props) {
 
-  function handleChange(e) {
-    const { value } = e.target;
-    props.sliderChange(value);
+
+  function onChange(e) {
+    let { value } = e.target;
+    props.setHeatMapTime(value)
+  }
+
+  function onChangeCommited() {
+    props.sliderChange();
   }
 
   return (
     <Box xs={{ width: 50 }}>
       <Slider
+
         aria-label="Custom marks"
-        defaultValue={8}
+
         getAriaValueText={valuetext}
         step={2}
         max={22}
@@ -63,7 +69,10 @@ export default function DiscreteSliderMarks(props) {
         color="secondary"
         valueLabelDisplay="auto"
         marks={Timeline}
-        onChange={handleChange}
+        onChange={onChange}
+        onChangeCommitted={onChangeCommited}
+        value={props.heatMapTime}
+
       />
     </Box>
   );
