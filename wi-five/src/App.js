@@ -2,22 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Map from './components/Map/Map';
 import Navbar from './components/NavBar/NavBar';
-import Timeline from './components/Timeline/Timeline';
-import './App.css';
 
-import Filter from './components/Filter/Filter';
-import heatMapG from './components/Map/heatmapg.json';
-import heatMapY from './components/Map/heatmapy.json';
-import heatMapR from './components/Map/heatmapr.json';
+import './App.css';
+import { Route, Routes } from 'react-router-dom'
+
+
 import Home from './components/Home/Home';
 
 
 
 
 function App() {
-  const dayNum = new Date().getDay();
-  const time = new Date().getHours();
-
   const [heatMapData, setHeatMapData] = useState({})
   const [mapKey, setMapKey] = useState(0)
   const [heatMapDay] = useState(getDay())
@@ -26,7 +21,7 @@ function App() {
   useEffect(() => {
 
     const getDefault = async () => {
-
+      console.log(heatMapTime)
       const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${heatMapDay}/${heatMapTime}`)
       console.log(res.data)
 
@@ -39,6 +34,9 @@ function App() {
 
 
   function getDay() {
+
+    const dayNum = new Date().getDay();
+
     switch (dayNum) {
       case 0:
         return 'monday'
@@ -69,6 +67,8 @@ function App() {
   }
 
   function getTime() {
+    const time = new Date().getHours();
+
     if (time <= 8) {
       return 8
     } else if (time > 8 && time <= 10) {
@@ -90,22 +90,7 @@ function App() {
   }
 
 
-  function heatMapLow() {
-    setHeatMapData({ ...heatMapG })
-    setMapKey(1)
 
-  }
-
-  function heatMapMedium() {
-    setHeatMapData({ ...heatMapY })
-    setMapKey(2)
-
-  }
-
-  function heatMapHigh() {
-    setHeatMapData({ ...heatMapR })
-    setMapKey(3)
-  }
 
   async function sliderChange() {
     const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${heatMapDay}/${heatMapTime}`)
@@ -116,12 +101,13 @@ function App() {
 
   return (
     <div className='container'>
-      <div><Navbar /></div>
-      <div><Map mapKey={mapKey} heatMapData={heatMapData} /></div>
-      <div><Filter heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} /></div>
+      <Navbar />
+      <Routes>
 
-      <div className='timeline'><Timeline setHeatMapTime={setHeatMapTime} heatMapTime={heatMapTime} sliderChange={sliderChange} /></div>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/Map' element={<Map mapKey={mapKey} setHeatMapTime={setHeatMapTime} setHeatMapData={setHeatMapData} heatMapTime={heatMapTime} setMapKey={setMapKey} sliderChange={sliderChange} heatMapData={heatMapData} />} />
 
+      </Routes>
 
     </div>
   );
