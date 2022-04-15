@@ -4,11 +4,13 @@ import Map from './components/Map/Map';
 import Navbar from './components/NavBar/NavBar';
 import Timeline from './components/Timeline/Timeline';
 import './App.css';
+
 import Filter from './components/Filter/Filter';
 import heatMapG from './components/Map/heatmapg.json';
 import heatMapY from './components/Map/heatmapy.json';
 import heatMapR from './components/Map/heatmapr.json';
 import Home from './components/Home/Home';
+
 
 
 
@@ -27,9 +29,8 @@ function App() {
 
       const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${heatMapDay}/${heatMapTime}`)
       console.log(res.data)
-      let positions = res.data.positions
-      let options = res.data.options
-      setHeatMapData({ positions, options });
+
+      setHeatMapData(res.data);
     }
     getDefault();
 
@@ -60,6 +61,9 @@ function App() {
       case 6:
         return 'sunday'
 
+      default:
+        return 'monday'
+
     }
 
   }
@@ -79,7 +83,7 @@ function App() {
       return 18
     } else if (time > 18 && time <= 20) {
       return 20
-    } else if (time > 20 && time <= 22) {
+    } else if (time > 20) {
       return 22
     }
 
@@ -103,9 +107,13 @@ function App() {
     setMapKey(3)
   }
 
-  function sliderChange(sliderValue) {
+  async function sliderChange(sliderValue) {
+    console.log(sliderValue)
     setHeatMapTime(sliderValue)
-    console.log(heatMapTime)
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${heatMapDay}/${heatMapTime}`)
+    console.log(res.data)
+    setHeatMapData(res.data);
+    setMapKey(Math.random())
   }
 
   return (
@@ -113,6 +121,7 @@ function App() {
       <div><Navbar /></div>
       <div><Map mapKey={mapKey} heatMapData={heatMapData} /></div>
       <div><Filter heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} /></div>
+
       <div className='timeline'><Timeline sliderChange={sliderChange} /></div>
 
 

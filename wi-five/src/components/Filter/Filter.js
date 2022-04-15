@@ -12,7 +12,7 @@ const theme = createTheme({
 })
 const Filter = (props) => {
   return (
-    <div direction="row" spacing={2}>
+    <div className="filter" direction="row" spacing={2}>
       <Button variant="contained" color="success" onClick={props.heatMapLow}>
         Low Traffic
       </Button>
