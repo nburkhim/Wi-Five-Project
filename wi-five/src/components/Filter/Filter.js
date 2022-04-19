@@ -6,23 +6,19 @@ const theme = createTheme({
   palette: {
     secondary: {
       main: "#FFD93D"
-
     }
   }
 })
 const Filter = (props) => {
   return (
     <div direction="row" spacing={2}>
-    <div className="filter" direction="row" spacing={2}>
-      <Button variant="contained" color="success" onClick={props.heatMapLow}>
+      <Button variant="outlined" color="error" onClick={props.heatMapLow}>
         Low Traffic
       </Button>
       <ThemeProvider theme={theme}><Button variant="contained" color="secondary" onClick={props.heatMapMedium}>
         Medium Traffic
       </Button></ThemeProvider>     
-      <Button variant="outlined" color="error" onClick={props.heatMapHigh}>
-      </Button></ThemeProvider>
-      <Button variant="contained" color="error" onClick={props.heatMapHigh}>
+      <Button variant="contained" color="success" onClick={props.heatMapHigh}>
         High Traffic
       </Button>
     </div>
