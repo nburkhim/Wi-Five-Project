@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import GoogleMapReact from 'google-map-react';
 import heatMapG from './heatmapg.json';
 import heatMapY from './heatmapy.json';
 import heatMapR from './heatmapr.json';
+import Filter from '../Filter/Filter';
+import Timeline from '../Timeline/Timeline';
+
 
 
 
@@ -14,6 +17,23 @@ export default function SimpleMap(props) {
     },
     zoom: 16.8
   };
+
+  function heatMapLow() {
+    props.setHeatMapData({ ...heatMapG })
+    props.setMapKey(1)
+
+  }
+
+  function heatMapMedium() {
+    props.setHeatMapData({ ...heatMapY })
+    props.setMapKey(2)
+
+  }
+
+  function heatMapHigh() {
+    props.setHeatMapData({ ...heatMapR })
+    props.setMapKey(3)
+  }
 
 
 
@@ -32,6 +52,9 @@ export default function SimpleMap(props) {
       >
 
       </GoogleMapReact>
+
+      <Filter heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} />
+      <div className='timeline'><Timeline setHeatMapTime={props.setHeatMapTime} heatMapTime={props.heatMapTime} sliderChange={props.sliderChange} /></div>
 
     </div>
   );

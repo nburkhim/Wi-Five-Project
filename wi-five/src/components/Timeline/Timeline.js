@@ -29,11 +29,11 @@ const Timeline = [
   },
   {
     value: 20,
-    label: '8:00 AM',
+    label: '8:00 PM',
   },
   {
     value: 22,
-    label: '10:00 AM',
+    label: '10:00 PM',
   }
 ];
 
@@ -41,12 +41,26 @@ function valuetext(value) {
   return `${value}:00`;
 }
 
-export default function DiscreteSliderMarks() {
+
+
+export default function DiscreteSliderMarks(props) {
+
+
+  function onChange(e) {
+    let { value } = e.target;
+    props.setHeatMapTime(value)
+  }
+
+  function onChangeCommited() {
+    props.sliderChange();
+  }
+
   return (
     <Box xs={{ width: 50 }}>
       <Slider
+
         aria-label="Custom marks"
-        defaultValue={8}
+
         getAriaValueText={valuetext}
         step={2}
         max={22}
@@ -55,6 +69,10 @@ export default function DiscreteSliderMarks() {
         color="secondary"
         valueLabelDisplay="auto"
         marks={Timeline}
+        onChange={onChange}
+        onChangeCommitted={onChangeCommited}
+        value={props.heatMapTime}
+
       />
     </Box>
   );
