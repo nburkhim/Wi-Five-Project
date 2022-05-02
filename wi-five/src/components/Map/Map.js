@@ -1,8 +1,7 @@
 import React from "react";
 import GoogleMapReact from 'google-map-react';
-import heatMapG from './heatmapg.json';
-import heatMapY from './heatmapy.json';
-import heatMapR from './heatmapr.json';
+import axios from 'axios';
+
 import Filter from '../Filter/Filter';
 import Timeline from '../Timeline/Timeline';
 
@@ -18,22 +17,77 @@ export default function SimpleMap(props) {
     zoom: 16.8
   };
 
-  function heatMapLow() {
-    props.setHeatMapData({ ...heatMapG })
+  async function heatMapLow() {
+    props.setHeatMapTraffic('low')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
     props.setMapKey(1)
 
   }
 
-  function heatMapMedium() {
-    props.setHeatMapData({ ...heatMapY })
+  async function heatMapMedium() {
+    props.setHeatMapTraffic('medium')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
     props.setMapKey(2)
 
   }
 
-  function heatMapHigh() {
-    props.setHeatMapData({ ...heatMapR })
+  async function heatMapHigh() {
+    props.setHeatMapTraffic('high')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
     props.setMapKey(3)
   }
+
+  async function heatMapMonday() {
+    props.setHeatMapDay('monday')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
+    props.setMapKey(1)
+
+  }
+
+  async function heatMapTuesday() {
+    props.setHeatMapDay('tuesday')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
+    props.setMapKey(2)
+
+  }
+
+  async function heatMapWednesday() {
+    props.setHeatMapDay('wednesday')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
+    props.setMapKey(3)
+  }
+
+  async function heatMapThursday() {
+    props.setHeatMapDay('thursday')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
+    props.setMapKey(1)
+
+  }
+
+  async function heatMapFriday() {
+    props.setHeatMapDay('friday')
+    const res = await axios.get(`https://wifivedata.ishankumar11.repl.co/${props.heatMapDay}/${props.heatMapTime}/${props.heatMapTraffic}`)
+    console.log(res.data)
+    props.setHeatMapData(res.data);
+    props.setMapKey(2)
+
+  }
+
+
 
 
 
@@ -53,7 +107,7 @@ export default function SimpleMap(props) {
 
       </GoogleMapReact>
 
-      <Filter heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} />
+      <Filter heatMapMonday={heatMapMonday} heatMapTuesday={heatMapTuesday} heatMapWednesday={heatMapWednesday} heatMapThursday={heatMapThursday} heatMapFriday={heatMapFriday} heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} />
       <div className='timeline'><Timeline setHeatMapTime={props.setHeatMapTime} heatMapTime={props.heatMapTime} sliderChange={props.sliderChange} /></div>
 
     </div>
