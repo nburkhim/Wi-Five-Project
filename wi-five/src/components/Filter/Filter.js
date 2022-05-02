@@ -20,6 +20,23 @@ const Filter = (props) => {
       </Button></ThemeProvider>     
       <Button variant="outlined" color="error" onClick={props.heatMapHigh}>
         High Traffic
+      </Button><br />
+
+
+      <Button variant="contained" onClick={props.heatMapMonday}>
+        Monday
+      </Button>
+      <Button variant="contained" onClick={props.heatMapTuesday}>
+        Tuesday
+      </Button>
+      <Button variant="contained" onClick={props.heatMapWednesday}>
+        Wednesday
+      </Button>
+      <Button variant="contained" onClick={props.heatMapThursday}>
+        Thursday
+      </Button>
+      <Button variant="contained" onClick={props.heatMapFriday}>
+        Friday
       </Button>
     </div>
   );
