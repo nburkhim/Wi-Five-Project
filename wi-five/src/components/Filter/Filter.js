@@ -1,43 +1,57 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { styled } from "@mui/system";
+import { spacing } from "@mui/system";
 const theme = createTheme({
   palette: {
     secondary: {
-      main: "#FFD93D"
-    }
-  }
-})
+      main: "#FFD93D",
+    },
+  },
+});
+const MuiButton = styled(Button)(spacing)
 const Filter = (props) => {
   return (
-    <div direction="row" spacing={2}>
-      <Button variant="contained" color="success" onClick={props.heatMapLow}>
-        Low Traffic
-      </Button>
-      <ThemeProvider theme={theme}><Button variant="contained" color="secondary" onClick={props.heatMapMedium}>
-        Medium Traffic
-      </Button></ThemeProvider>     
-      <Button variant="outlined" color="error" onClick={props.heatMapHigh}>
-        High Traffic
-      </Button><br />
+    <div className="container">
+      <div direction="row" spacing={2}>
+        <MuiButton variant="contained" color="success" onClick={props.heatMapLow}>
+          Low Traffic
+        </MuiButton>
+        <ThemeProvider theme={theme}>
+          <MuiButton
+            variant="contained"
+            color="secondary"
+            onClick={props.heatMapMedium}
+          >
+            Medium Traffic
+          </MuiButton>
+        </ThemeProvider>
+        <MuiButton variant="outlined" color="error" onClick={props.heatMapHigh}>
+          High Traffic
+        </MuiButton>
+        <br />
 
+        <br />
 
-      <Button variant="contained" onClick={props.heatMapMonday}>
-        Monday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapTuesday}>
-        Tuesday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapWednesday}>
-        Wednesday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapThursday}>
-        Thursday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapFriday}>
-        Friday
-      </Button>
+        <div>
+          <Button variant="outlined" onClick={props.heatMapMonday}>
+            Monday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapTuesday}>
+            Tuesday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapWednesday}>
+            Wednesday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapThursday}>
+            Thursday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapFriday}>
+            Friday
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };
