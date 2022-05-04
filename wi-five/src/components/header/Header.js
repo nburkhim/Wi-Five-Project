@@ -2,7 +2,9 @@ import React,{useState} from "react";
 import "./header.scss";
 import { Link } from 'react-router-dom'
 import { images } from "../../images";
+import Share from "../Share/Share";
 const Header = () => {
+
   const [open, setOpen] = useState(false);
   const handleClick = (e) => {
     e.preventDefault();
@@ -16,9 +18,7 @@ const Header = () => {
             <Link to={'/'} className="link"><img src={images.wifive} alt="" /></Link>
           </div>
           <ul className={open ? `nav-items active` : `nav-items`}>
-          <li>About</li>
-          <li>Network</li>
-          <li>Share</li>
+          <Share/>
           <li className="btn btn--nav-btn"><Link to={'/Map'} className="link" >View Map</Link></li>
           </ul>
           <div className="hamburger">

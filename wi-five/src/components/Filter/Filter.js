@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { styled } from "@mui/system";
-import { spacing } from "@mui/system";
 const theme = createTheme({
   palette: {
     secondary: {
@@ -10,31 +8,36 @@ const theme = createTheme({
     },
   },
 });
-const MuiButton = styled(Button)(spacing)
 const Filter = (props) => {
   return (
-    <div className="container">
-      <div direction="row" spacing={2}>
-        <MuiButton variant="contained" color="success" onClick={props.heatMapLow}>
-          Low Traffic
-        </MuiButton>
-        <ThemeProvider theme={theme}>
-          <MuiButton
+    <div
+      className="container"
+      style={{ display: "flex", justifyContent: "center" }}
+    >
+      <div direction="row" spacing={2} >
+        <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem", justifyContent: "space-between" }}>
+          <Button
             variant="contained"
-            color="secondary"
-            onClick={props.heatMapMedium}
+            color="success"
+            onClick={props.heatMapLow}
           >
-            Medium Traffic
-          </MuiButton>
-        </ThemeProvider>
-        <MuiButton variant="outlined" color="error" onClick={props.heatMapHigh}>
-          High Traffic
-        </MuiButton>
-        <br />
+            Low Traffic
+          </Button>
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={props.heatMapMedium}
+            >
+              Medium Traffic
+            </Button>
+          </ThemeProvider>
+          <Button variant="contained" color="error" onClick={props.heatMapHigh}>
+            High Traffic
+          </Button>
+        </div>
 
-        <br />
-
-        <div>
+        <div style={{ display: "flex", gap: "1rem" }}>
           <Button variant="outlined" onClick={props.heatMapMonday}>
             Monday
           </Button>

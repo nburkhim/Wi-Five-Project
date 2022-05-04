@@ -13,7 +13,7 @@ const Timeline = [
   },
   {
     value: 12,
-    label: '12:00 AM',
+    label: '12:00 PM',
   },
   {
     value: 14,
