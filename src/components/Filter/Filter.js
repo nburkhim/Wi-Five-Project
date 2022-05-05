@@ -9,7 +9,76 @@ const theme = createTheme({
   },
 });
 const Filter = (props) => {
+
+  function handleMonday() {
+    props.setActiveDay({
+      "monday": true,
+      "tuesday": false,
+      "wednesday": false,
+      "thursday": false,
+      "friday": false,
+
+    })
+    props.heatMapMonday()
+  }
+
+  function handleTuesday() {
+    props.setActiveDay({
+      "monday": false,
+      "tuesday": true,
+      "wednesday": false,
+      "thursday": false,
+      "friday": false,
+
+    })
+    props.heatMapTuesday()
+
+  }
+
+  function handleWednesday() {
+    props.setActiveDay({
+      "monday": false,
+      "tuesday": false,
+      "wednesday": true,
+      "thursday": false,
+      "friday": false,
+
+    })
+    props.heatMapWednesday()
+
+  }
+
+  function handleThursday() {
+    props.setActiveDay({
+      "monday": false,
+      "tuesday": false,
+      "wednesday": false,
+      "thursday": true,
+      "friday": false,
+
+    })
+    props.heatMapThursday()
+
+  }
+
+  function handleFriday() {
+    props.setActiveDay({
+      "monday": false,
+      "tuesday": false,
+      "wednesday": false,
+      "thursday": false,
+      "friday": true,
+
+    })
+    props.heatMapFriday()
+
+  }
+
+
+
   return (
+
+
     <div
       className="container"
       style={{ display: "flex", justifyContent: "center" }}
@@ -38,24 +107,26 @@ const Filter = (props) => {
         </div>
 
         <div style={{ display: "flex", gap: "1rem" }}>
-          <Button variant="outlined" onClick={props.heatMapMonday}>
+          <Button variant={props.activeDay.monday ? "contained" : "outlined"} onClick={handleMonday}>
             Monday
           </Button>
-          <Button variant="outlined" onClick={props.heatMapTuesday}>
+          <Button variant={props.activeDay.tuesday ? "contained" : "outlined"} onClick={handleTuesday}>
             Tuesday
           </Button>
-          <Button variant="outlined" onClick={props.heatMapWednesday}>
+          <Button variant={props.activeDay.wednesday ? "contained" : "outlined"} onClick={handleWednesday}>
             Wednesday
           </Button>
-          <Button variant="outlined" onClick={props.heatMapThursday}>
+          <Button variant={props.activeDay.thursday ? "contained" : "outlined"} onClick={handleThursday}>
             Thursday
           </Button>
-          <Button variant="outlined" onClick={props.heatMapFriday}>
+          <Button variant={props.activeDay.friday ? "contained" : "outlined"} onClick={handleFriday}>
             Friday
           </Button>
         </div>
       </div>
+
     </div>
+
   );
 };
 

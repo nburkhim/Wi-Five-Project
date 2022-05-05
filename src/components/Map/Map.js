@@ -95,6 +95,7 @@ export default function SimpleMap(props) {
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '80vh', width: '80%', margin: ' 50px auto' }}>
+
       <GoogleMapReact
         key={props.mapKey}
         bootstrapURLKeys={{ key: "AIzaSyCH_LrL0jG49y3bH60j4yeC-UcqbhOhMck" }}
@@ -106,8 +107,8 @@ export default function SimpleMap(props) {
       >
 
       </GoogleMapReact>
-
-      <Filter heatMapMonday={heatMapMonday} heatMapTuesday={heatMapTuesday} heatMapWednesday={heatMapWednesday} heatMapThursday={heatMapThursday} heatMapFriday={heatMapFriday} heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} />
+      <p style={{ textAlign: "center" }}>(Double-click filter to ensure re-rendering)</p>
+      <Filter activeDay={props.activeDay} setActiveDay={props.setActiveDay} heatMapMonday={heatMapMonday} heatMapTuesday={heatMapTuesday} heatMapWednesday={heatMapWednesday} heatMapThursday={heatMapThursday} heatMapFriday={heatMapFriday} heatMapLow={heatMapLow} heatMapMedium={heatMapMedium} heatMapHigh={heatMapHigh} />
       <div className='timeline'><Timeline setHeatMapTime={props.setHeatMapTime} heatMapTime={props.heatMapTime} sliderChange={props.sliderChange} /></div>
 
     </div>

@@ -67,12 +67,20 @@ function App() {
   const [heatMapDay, setHeatMapDay] = useState(getDay());
   const [heatMapTime, setHeatMapTime] = useState(getTime());
   const [heatMapTraffic, setHeatMapTraffic] = useState("low");
+  const [activeDay, setActiveDay] = useState({
+    "monday": false,
+    "tuesday": false,
+    "wednesday": false,
+    "thursday": false,
+    "friday": false,
+
+  })
 
   useEffect(() => {
     const getDefault = async () => {
-      function heatMapTime() {}
-      function heatMapDay() {}
-      function heatMapTraffic() {}
+      function heatMapTime() { }
+      function heatMapDay() { }
+      function heatMapTraffic() { }
       console.log(heatMapTime);
 
       const res = await axios.get(
@@ -116,6 +124,8 @@ function App() {
               setMapKey={setMapKey}
               sliderChange={sliderChange}
               heatMapData={heatMapData}
+              activeDay={activeDay}
+              setActiveDay={setActiveDay}
             />
           }
         />
