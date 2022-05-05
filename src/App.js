@@ -70,6 +70,9 @@ function App() {
 
   useEffect(() => {
     const getDefault = async () => {
+      function heatMapTime() {}
+      function heatMapDay() {}
+      function heatMapTraffic() {}
       console.log(heatMapTime);
 
       const res = await axios.get(
