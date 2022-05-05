@@ -1,0 +1,38 @@
+.we-are-different{
+    width: 100%;
+    padding-top: 5rem;
+    img{
+        max-width: 7.5rem;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        padding-top: 10rem;
+        margin-right: 3%;
+        margin-left: 3%;
+
+        h3 {
+            padding: 1.5rem 0;
+            font-weight: 700;
+        }
+        p {
+            padding: 0;
+        }
+        @media(max-width: 767px) {
+            text-align: center;
+            grid-template-columns: repeat(1, 1fr);
+            p {
+                max-width: 70%;
+                margin: auto;
+            }
+        }
+    }
+    @media(max-width: 767px) {
+        padding-top: 2rem;
+        .title1 {
+            text-align: center;
+        }
+    }
+}

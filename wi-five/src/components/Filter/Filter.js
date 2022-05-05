@@ -1,44 +1,60 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     secondary: {
-      main: "#FFD93D"
-
-    }
-  }
-})
+      main: "#FFD93D",
+    },
+  },
+});
 const Filter = (props) => {
   return (
-    <div className="filter" direction="row" spacing={2}>
-      <Button variant="contained" color="success" onClick={props.heatMapLow}>
-        Low Traffic
-      </Button>
-      <ThemeProvider theme={theme}><Button variant="contained" color="secondary" onClick={props.heatMapMedium}>
-        Medium Traffic
-      </Button></ThemeProvider>
-      <Button variant="contained" color="error" onClick={props.heatMapHigh}>
-        High Traffic
-      </Button><br />
+    <div
+      className="container"
+      style={{ display: "flex", justifyContent: "center" }}
+    >
+      <div direction="row" spacing={2} >
+        <div style={{ display: "flex", gap: "1rem", marginBottom: "1rem", justifyContent: "space-between" }}>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={props.heatMapLow}
+          >
+            Low Traffic
+          </Button>
+          <ThemeProvider theme={theme}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={props.heatMapMedium}
+            >
+              Medium Traffic
+            </Button>
+          </ThemeProvider>
+          <Button variant="contained" color="error" onClick={props.heatMapHigh}>
+            High Traffic
+          </Button>
+        </div>
 
-
-      <Button variant="contained" onClick={props.heatMapMonday}>
-        Monday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapTuesday}>
-        Tuesday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapWednesday}>
-        Wednesday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapThursday}>
-        Thursday
-      </Button>
-      <Button variant="contained" onClick={props.heatMapFriday}>
-        Friday
-      </Button>
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <Button variant="outlined" onClick={props.heatMapMonday}>
+            Monday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapTuesday}>
+            Tuesday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapWednesday}>
+            Wednesday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapThursday}>
+            Thursday
+          </Button>
+          <Button variant="outlined" onClick={props.heatMapFriday}>
+            Friday
+          </Button>
+        </div>
+      </div>
     </div>
   );
 };

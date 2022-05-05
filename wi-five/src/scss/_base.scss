@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  max-width: 120rem;
+  margin: auto;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 767px) {
+    padding: 0;
+  }
+
+}
+
+.btn {
+  width: 100%;
+  max-width: 15rem;
+  padding: 1rem 2rem;
+  border: 1px solid var(--white);
+  background: transparent;
+  color: var(--white);
+  text-decoration: none;
+  text-align: center;
+  &--nav-btn {
+    border: 1px solid var(--dark-violet);
+    color: var(--dark-violet);
+  }
+  
+}
+
+img {
+  width: 100%;
+}
+
+section {
+  padding: 6rem 0;
+}
