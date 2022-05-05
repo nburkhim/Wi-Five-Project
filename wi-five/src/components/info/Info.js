@@ -6,7 +6,7 @@ const Info = () => {
     <div>
       <div className="we-are-different">
         <div className="container"></div>
-        <h2 className="title1 title1--mod">Our Goals</h2>
+        <h2 className="title1 title1--mod">Our Goals and Missions</h2>
         <div className="we-are-different__content">
           <div className="snappy">
             <img src={images.snappy_process} alt="" />
